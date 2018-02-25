@@ -12,8 +12,6 @@ import initWrapper from './aragonjs-wrapper'
 import Web3 from 'web3'
 
 import {
-  // actionIntent,
-  // actionPaths,
   notifications,
   tokens,
   prices,
@@ -169,8 +167,8 @@ class App extends React.Component {
       this.handleSignerClose()
 
       if (err) {
-        // reject(err)
         this.showWeb3ActionSigner({ to: transaction.to }, { error: err })
+        reject(err)
         console.error(err)
         return
       }

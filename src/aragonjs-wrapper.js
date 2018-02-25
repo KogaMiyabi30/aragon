@@ -1,4 +1,4 @@
-import Web3 from 'web3'
+// import Web3 from 'web3'
 import Aragon from '@aragon/wrapper'
 import { noop } from './utils'
 
@@ -60,8 +60,11 @@ const initWrapper = async (
     apm: { ipfs: ipfsConf },
   })
 
+  // TODO: using window.web3 instead of new Web3 for now,
+  // to make MetaMask work with Ganache.
   // const signingWeb3 = new Web3(signingProvider || provider)
   const signingWeb3 = window.web3
+
   onSigningWeb3(signingWeb3)
 
   const [, account] = await Promise.all([
